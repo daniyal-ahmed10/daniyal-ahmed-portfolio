@@ -1,18 +1,16 @@
 import { User } from 'lucide-react';
-import { Image } from '@/components/ui/image';
 
-// Replace this with your own photo URL (or upload an image via chat and paste the URL here)
+// Your photo lives at public/profile.jpeg and is served at /profile.jpeg
 const profileSrc = '/profile.jpeg';
 
 export default function ProfileImage() {
   return (
     <div className="group relative h-[380px] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-xl transition-all duration-300 hover:border-blue-500/40 sm:h-[460px] lg:h-[520px]">
       {profileSrc ? (
-        <Image
+        <img
           src={profileSrc}
           alt="Daniyal Ahmed"
-          fittingType="fill"
-          className="h-full w-full"
+          className="h-full w-full object-cover"
         />
       ) : (
         <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-slate-600 transition-colors group-hover:text-blue-400/70">
