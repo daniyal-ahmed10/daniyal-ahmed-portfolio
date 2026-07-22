@@ -2,7 +2,7 @@ import { User } from 'lucide-react';
 import { Image } from '@/components/ui/image';
 
 // Replace this with your own photo URL (or upload an image via chat and paste the URL here)
-const profileSrc = '';
+const profileSrc = '/profile.jpeg';
 
 export default function ProfileImage() {
   return (
