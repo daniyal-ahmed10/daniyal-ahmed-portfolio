@@ -1,12 +1,11 @@
 import { useRef } from 'react';
-import { ArrowDown, Github } from 'lucide-react';
+import { ArrowDown, Github, Linkedin } from 'lucide-react';
 
-const stack = ['C++', 'Python', 'JavaScript', 'React', 'Next.js', 'Java', 'Git', 'Linux'];
-
-const stats = [
-  { value: '03', label: 'Projects' },
-  { value: '3.83', label: 'GPA' },
-  { value: '2028', label: 'Grad' },
+const now = [
+  { label: 'Studying', value: 'Data structures, algorithms & systems programming at UCR' },
+  { label: 'Building', value: 'Web experiences for UCR student organizations' },
+  { label: 'Learning', value: 'System design & machine learning fundamentals' },
+  { label: 'Based in', value: 'Riverside, California' },
 ];
 
 export default function Hero() {
@@ -32,9 +31,7 @@ export default function Hero() {
       <div className="blob animate-float-slower" style={{ width: 440, height: 440, background: 'hsl(199 89% 55% / 0.22)', bottom: '-15%', right: '-4%' }} />
       <div className="blob animate-float-slow" style={{ width: 300, height: 300, background: 'hsl(245 80% 60% / 0.16)', top: '35%', right: '25%' }} />
 
-      {/* Subtle grid */}
       <div className="absolute inset-0 bg-dot-grid opacity-20" />
-      {/* Mouse spotlight */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -50,7 +47,7 @@ export default function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse-dot" />
             Computer Science · UCR
           </div>
-          <h1 className="font-heading text-6xl font-extrabold leading-[1.02] tracking-tight sm:text-7xl lg:text-8xl">
+          <h1 className="font-heading text-6xl font-bold leading-[1.02] tracking-tight sm:text-7xl lg:text-8xl">
             <span className="text-gradient">Daniyal</span>
             <br />
             <span className="text-gradient">Ahmed</span>
@@ -74,44 +71,37 @@ export default function Hero() {
             >
               <Github className="h-4 w-4" /> GitHub
             </a>
+            <a
+              href="https://linkedin.com/in/daniyal-ahmed-279888280"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-11 items-center gap-2 rounded-full border border-white/10 px-5 font-mono text-xs uppercase tracking-widest text-slate-300 transition-colors hover:border-blue-500/40 hover:text-white"
+            >
+              <Linkedin className="h-4 w-4" /> LinkedIn
+            </a>
           </div>
         </div>
 
         <div className="lg:col-span-5 lg:pl-8">
           <div className="glass glow-hover rounded-2xl p-6">
             <div className="flex items-center justify-between">
-              <span className="flex items-center gap-2 text-sm font-medium text-slate-200">
-                <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse-dot" />
-                Available for internships
+              <h3 className="font-heading text-sm font-semibold uppercase tracking-widest text-slate-200">
+                Now
+              </h3>
+              <span className="flex items-center gap-2 font-mono text-xs text-slate-500">
+                <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse-dot" /> Available
               </span>
-              <span className="font-mono text-xs text-slate-500">2026</span>
             </div>
 
-            <div className="mt-6 grid grid-cols-3 gap-2 border-t border-white/5 pt-6">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <p className="text-2xl font-bold text-white">{s.value}</p>
-                  <p className="mt-0.5 font-mono text-xs uppercase tracking-wider text-slate-500">
-                    {s.label}
-                  </p>
+            <div className="mt-6 space-y-5">
+              {now.map((item) => (
+                <div key={item.label} className="flex items-start gap-4">
+                  <span className="w-20 shrink-0 font-mono text-xs uppercase tracking-wider text-blue-400/70">
+                    {item.label}
+                  </span>
+                  <p className="text-sm leading-relaxed text-slate-300">{item.value}</p>
                 </div>
               ))}
-            </div>
-
-            <div className="mt-6 border-t border-white/5 pt-6">
-              <p className="mb-3 font-mono text-xs uppercase tracking-widest text-slate-500">
-                Core stack
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {stack.map((s) => (
-                  <span
-                    key={s}
-                    className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-xs text-slate-300 transition-colors hover:border-blue-500/40 hover:text-white"
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
             </div>
           </div>
         </div>

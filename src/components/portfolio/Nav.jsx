@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Command, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const links = [
   { label: 'Home', id: 'home', num: '01' },
@@ -51,9 +51,6 @@ export default function Nav() {
         </div>
 
         <div className="flex items-center gap-3">
-          <span className="hidden items-center gap-2 border border-white/10 rounded-full px-3 py-1.5 font-mono text-xs text-slate-500 md:flex">
-            <Command className="h-3 w-3" />K
-          </span>
           <button
             onClick={() => setOpen(!open)}
             className="flex h-9 w-9 items-center justify-center text-slate-300 transition-colors hover:text-slate-100 md:hidden"
