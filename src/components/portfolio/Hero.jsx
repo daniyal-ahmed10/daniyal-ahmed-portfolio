@@ -52,10 +52,10 @@ export default function Hero() {
             <br />
             <span className="text-gradient">Ahmed</span>
           </h1>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-slate-400 hidden">
-            UC Riverside CS student turning classroom theory into shipped software — one project
-            at a time.
-          </p>
+          
+
+
+          
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#projects"
