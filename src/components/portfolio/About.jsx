@@ -2,11 +2,13 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <section id="about" className="border-t border-white/5 bg-[#0A0B10] py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+    <section id="about" className="relative overflow-hidden border-t border-white/5 bg-background py-24 lg:py-32">
+      <div className="blob animate-float-slower" style={{ width: 360, height: 360, background: 'hsl(217 91% 55% / 0.12)', top: '20%', left: '-10%' }} />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-3">
-            <p className="font-mono text-xs uppercase tracking-widest text-[#2DD4BF]/60">
+            <p className="font-mono text-xs uppercase tracking-widest text-blue-500/70">
               01 / About
             </p>
           </div>
@@ -24,10 +26,9 @@ export default function About() {
               <div className="mt-8 max-w-2xl space-y-4 text-slate-400">
                 <p>
                   Through coursework and hands-on projects, I've gained experience in{' '}
-                  <span className="text-slate-200">
-                    C++, Python, data structures, algorithms, and system-level programming
-                  </span>
-                  , and enjoy applying these skills to solve real-world problems.
+                  <span className="text-gradient-soft font-medium">C++, Python, data structures,
+                  algorithms, and system-level programming</span>, and enjoy applying these skills to
+                  solve real-world problems.
                 </p>
                 <p>
                   I'm particularly interested in creating software that has a tangible impact —
