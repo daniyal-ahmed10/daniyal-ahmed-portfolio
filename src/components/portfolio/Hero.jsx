@@ -3,7 +3,7 @@ import { ArrowDown, Github, Linkedin } from 'lucide-react';
 
 const stats = [
 { value: '3.83', label: "GPA · Dean's List" },
-{ value: '03', label: 'Projects shipped' },
+{ value: "4+", label: "Projects Developed" },
 { value: '2', label: 'Leadership roles' },
 { value: "2027", label: 'Graduating class' }];
 
