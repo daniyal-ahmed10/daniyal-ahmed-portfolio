@@ -2,11 +2,11 @@ import { useRef } from 'react';
 import { ArrowDown, Github, Linkedin } from 'lucide-react';
 
 const stats = [
-  { value: '3.83', label: "GPA · Dean's List" },
-  { value: '03', label: 'Projects shipped' },
-  { value: '1', label: 'ACM board seat' },
-  { value: '2028', label: 'Graduating class' },
-];
+{ value: '3.83', label: "GPA · Dean's List" },
+{ value: '03', label: 'Projects shipped' },
+{ value: '1', label: 'ACM board seat' },
+{ value: '2028', label: 'Graduating class' }];
+
 
 export default function Hero() {
   const ref = useRef(null);
@@ -24,8 +24,8 @@ export default function Hero() {
       id="home"
       ref={ref}
       onMouseMove={onMouseMove}
-      className="relative flex min-h-screen items-center overflow-hidden bg-background"
-    >
+      className="relative flex min-h-screen items-center overflow-hidden bg-background">
+      
       {/* Aurora blobs */}
       <div className="blob animate-float-slow" style={{ width: 520, height: 520, background: 'hsl(217 91% 55% / 0.28)', top: '-12%', left: '-6%' }} />
       <div className="blob animate-float-slower" style={{ width: 440, height: 440, background: 'hsl(199 89% 55% / 0.22)', bottom: '-15%', right: '-4%' }} />
@@ -36,9 +36,9 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'radial-gradient(550px circle at var(--mx, 50%) var(--my, 50%), hsl(217 91% 60% / 0.08), transparent 45%)',
-        }}
-      />
+          'radial-gradient(550px circle at var(--mx, 50%) var(--my, 50%), hsl(217 91% 60% / 0.08), transparent 45%)'
+        }} />
+      
       <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
 
       <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 gap-12 px-6 pt-16 lg:grid-cols-12 lg:px-12">
@@ -52,31 +52,31 @@ export default function Hero() {
             <br />
             <span className="text-gradient">Ahmed</span>
           </h1>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-slate-400">
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-slate-400 hidden">
             UC Riverside CS student turning classroom theory into shipped software — one project
             at a time.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#projects"
-              className="btn-glow inline-flex h-11 items-center rounded-full border border-slate-700 px-6 font-mono text-xs uppercase tracking-widest text-slate-100"
-            >
+              className="btn-glow inline-flex h-11 items-center rounded-full border border-slate-700 px-6 font-mono text-xs uppercase tracking-widest text-slate-100">
+              
               View Projects
             </a>
             <a
               href="https://github.com/daniyal-ahmed10"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 items-center gap-2 rounded-full border border-white/10 px-5 font-mono text-xs uppercase tracking-widest text-slate-300 transition-colors hover:border-blue-500/40 hover:text-white"
-            >
+              className="inline-flex h-11 items-center gap-2 rounded-full border border-white/10 px-5 font-mono text-xs uppercase tracking-widest text-slate-300 transition-colors hover:border-blue-500/40 hover:text-white">
+              
               <Github className="h-4 w-4" /> GitHub
             </a>
             <a
               href="https://linkedin.com/in/daniyal-ahmed-279888280"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 items-center gap-2 rounded-full border border-white/10 px-5 font-mono text-xs uppercase tracking-widest text-slate-300 transition-colors hover:border-blue-500/40 hover:text-white"
-            >
+              className="inline-flex h-11 items-center gap-2 rounded-full border border-white/10 px-5 font-mono text-xs uppercase tracking-widest text-slate-300 transition-colors hover:border-blue-500/40 hover:text-white">
+              
               <Linkedin className="h-4 w-4" /> LinkedIn
             </a>
           </div>
@@ -96,8 +96,8 @@ export default function Hero() {
             <p className="mt-2 text-sm text-slate-500">A quick snapshot of the journey so far.</p>
 
             <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-6">
-              {stats.map((s) => (
-                <div key={s.label}>
+              {stats.map((s) =>
+              <div key={s.label}>
                   <p className="text-gradient font-heading text-3xl font-bold leading-none">
                     {s.value}
                   </p>
@@ -105,7 +105,7 @@ export default function Hero() {
                     {s.label}
                   </p>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>
@@ -114,10 +114,10 @@ export default function Hero() {
       <a
         href="#about"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-600 transition-colors hover:text-blue-400"
-        aria-label="Scroll down"
-      >
+        aria-label="Scroll down">
+        
         <ArrowDown className="h-5 w-5 animate-bounce" />
       </a>
-    </section>
-  );
+    </section>);
+
 }
