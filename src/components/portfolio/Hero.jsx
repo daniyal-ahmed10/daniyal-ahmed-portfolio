@@ -3,10 +3,11 @@ import { ArrowDown, Github, Linkedin } from 'lucide-react';
 import ProfileImage from '@/components/portfolio/ProfileImage';
 
 const stats = [
-{ value: '3.83', label: "GPA · Dean's List" },
-{ value: "4+", label: "Projects Developed" },
-{ value: '2', label: 'Leadership roles' },
-{ value: "2027", label: 'Graduating class' }];
+  { value: '3.83', label: "GPA · Dean's List" },
+  { value: '03', label: 'Projects shipped' },
+  { value: '2', label: 'Leadership roles' },
+  { value: "2027", label: 'Graduating class' },
+];
 
 
 export default function Hero() {
@@ -44,22 +45,16 @@ export default function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 gap-12 px-6 pt-16 lg:grid-cols-12 lg:px-12">
         <div className="lg:col-span-7">
-          <div className="mb-6 flex items-center gap-4">
-            <ProfileImage />
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-slate-400">
-              <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse-dot" />
-              Computer Science · UCR
-            </div>
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-slate-400">
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse-dot" />
+            Computer Science · UCR
           </div>
           <h1 className="font-heading text-6xl font-bold leading-[1.02] tracking-tight sm:text-7xl lg:text-8xl">
             <span className="text-aurora">Daniyal</span>
             <br />
             <span className="text-outline-blue">Ahmed</span>
           </h1>
-          
 
-
-          
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#projects"
@@ -84,10 +79,8 @@ export default function Hero() {
               <Linkedin className="h-4 w-4" /> LinkedIn
             </a>
           </div>
-        </div>
 
-        <div className="lg:col-span-5 lg:pl-8">
-          <div className="glass glow-hover rounded-2xl p-6">
+          <div className="glass glow-hover mt-10 rounded-2xl p-6">
             <div className="flex items-center justify-between">
               <h3 className="font-heading text-sm font-semibold uppercase tracking-widest text-slate-200">
                 By the numbers
@@ -99,7 +92,7 @@ export default function Hero() {
 
             <p className="mt-2 text-sm text-slate-500">A quick snapshot of the journey so far.</p>
 
-            <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-6">
+            <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-4">
               {stats.map((s) =>
               <div key={s.label}>
                   <p className="text-gradient font-heading text-3xl font-bold leading-none">
@@ -112,6 +105,10 @@ export default function Hero() {
               )}
             </div>
           </div>
+        </div>
+
+        <div className="lg:col-span-5 lg:pl-4">
+          <ProfileImage />
         </div>
       </div>
 
