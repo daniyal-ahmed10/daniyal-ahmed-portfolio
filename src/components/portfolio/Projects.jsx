@@ -30,6 +30,15 @@ const projects = [
       { label: 'Source', href: 'https://github.com/daniyal-ahmed10/Prem-AI-Game-Predictor/tree/main', icon: 'github' },
     ],
   },
+  {
+    name: 'Smart Parking App',
+    year: '2026',
+    description:
+      'A real-time smart parking application helping drivers locate, navigate to, and reserve available spots — cutting search time and easing campus congestion.',
+    tags: ['Mobile', 'Real-time', 'Maps'],
+    links: [],
+    inProgress: true,
+  },
 ];
 
 export default function Projects() {
@@ -79,19 +88,25 @@ export default function Projects() {
                   </div>
                 </div>
                 <div className="flex gap-4 lg:col-span-2 lg:justify-end">
-                  {p.links.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-slate-400 transition-colors hover:text-blue-400"
-                    >
-                      {link.icon === 'github' && <Github className="h-3.5 w-3.5" />}
-                      {link.label}
-                      {link.external && <ArrowUpRight className="h-3.5 w-3.5" />}
-                    </a>
-                  ))}
+                  {p.inProgress ? (
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-blue-300">
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse-dot" /> In progress
+                    </span>
+                  ) : (
+                    p.links.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-slate-400 transition-colors hover:text-blue-400"
+                      >
+                        {link.icon === 'github' && <Github className="h-3.5 w-3.5" />}
+                        {link.label}
+                        {link.external && <ArrowUpRight className="h-3.5 w-3.5" />}
+                      </a>
+                    ))
+                  )}
                 </div>
               </div>
             </motion.article>

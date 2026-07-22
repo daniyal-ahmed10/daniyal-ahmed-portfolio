@@ -4,7 +4,7 @@ import { ArrowDown, Github, Linkedin } from 'lucide-react';
 const stats = [
 { value: '3.83', label: "GPA · Dean's List" },
 { value: '03', label: 'Projects shipped' },
-{ value: '1', label: 'ACM board seat' },
+{ value: '2', label: 'Leadership roles' },
 { value: '2028', label: 'Graduating class' }];
 
 

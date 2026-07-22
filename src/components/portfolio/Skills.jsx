@@ -45,9 +45,10 @@ export default function Skills() {
                   <dt className="text-slate-500">Honors</dt>
                   <dd className="text-slate-200">Dean's & Chancellor's List</dd>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex flex-col items-end gap-1">
                   <dt className="text-slate-500">Leadership</dt>
-                  <dd className="text-slate-200">Board Member, ACM @ UCR</dd>
+                  <dd className="text-right text-slate-200">Board Member, ACM @ UCR</dd>
+                  <dd className="text-right text-slate-200">Projects Director, MTC @ UCR</dd>
                 </div>
               </dl>
             </div>
