@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const links = [
-  { label: 'Home', id: 'home', num: '01' },
-  { label: 'About', id: 'about', num: '02' },
-  { label: 'Skills', id: 'skills', num: '03' },
-  { label: 'Projects', id: 'projects', num: '04' },
+  { label: 'Home', id: 'home', num: '' },
+  { label: 'About', id: 'about', num: '01' },
+  { label: 'Skills', id: 'skills', num: '02' },
+  { label: 'Projects', id: 'projects', num: '03' },
 ];
 
 export default function Nav() {
@@ -44,7 +44,7 @@ export default function Nav() {
               href={`#${l.id}`}
               className="font-mono text-xs uppercase tracking-widest text-slate-400 transition-colors hover:text-slate-100"
             >
-              <span className="mr-1 text-blue-500/50">{l.num}</span>
+              {l.num && <span className="mr-1 text-blue-500/50">{l.num}</span>}
               {l.label}
             </a>
           ))}
@@ -72,7 +72,7 @@ export default function Nav() {
               onClick={() => setOpen(false)}
               className="block py-3 font-mono text-sm uppercase tracking-widest text-slate-400"
             >
-              <span className="mr-2 text-blue-500/50">{l.num}</span>
+              {l.num && <span className="mr-2 text-blue-500/50">{l.num}</span>}
               {l.label}
             </a>
           ))}
