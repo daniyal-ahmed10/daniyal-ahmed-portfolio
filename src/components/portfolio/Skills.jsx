@@ -47,7 +47,7 @@ export default function Skills() {
                 </div>
                 <div className="flex flex-col items-end gap-1">
                   <dt className="text-slate-500">Leadership</dt>
-                  <dd className="text-right text-slate-200">Board Member, ACM @ UCR</dd>
+                  <dd className="text-right text-slate-200">VP of Professional Development, ACM @ UCR</dd>
                   <dd className="text-right text-slate-200">Projects Director, MTC @ UCR</dd>
                 </div>
               </dl>
