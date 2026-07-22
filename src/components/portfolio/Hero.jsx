@@ -4,7 +4,7 @@ import ProfileImage from '@/components/portfolio/ProfileImage';
 
 const stats = [
   { value: '3.83', label: "GPA · Dean's List" },
-  { value: '03', label: 'Projects shipped' },
+  { value: '3+', label: 'Projects built' },
   { value: '2', label: 'Leadership roles' },
   { value: "2027", label: 'Graduating class' },
 ];
