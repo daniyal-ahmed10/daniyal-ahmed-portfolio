@@ -223,4 +223,15 @@
     -webkit-text-stroke: 1.5px hsl(199 89% 72%);
     text-shadow: 0 0 45px hsl(199 89% 60% / 0.55);
   }
+
+  .text-aurora {
+    background: linear-gradient(120deg, hsl(217 91% 72%), hsl(199 89% 70%), hsl(245 80% 72%));
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(0 0 24px hsl(217 91% 60% / 0.35));
+    animation: gradient-shift 9s ease infinite;
+  }
 }
