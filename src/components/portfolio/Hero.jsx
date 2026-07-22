@@ -1,11 +1,11 @@
 import { useRef } from 'react';
 import { ArrowDown, Github, Linkedin } from 'lucide-react';
 
-const now = [
-  { label: 'Studying', value: 'Data structures, algorithms & systems programming at UCR' },
-  { label: 'Building', value: 'Web experiences for UCR student organizations' },
-  { label: 'Learning', value: 'System design & machine learning fundamentals' },
-  { label: 'Based in', value: 'Riverside, California' },
+const stats = [
+  { value: '3.83', label: "GPA · Dean's List" },
+  { value: '03', label: 'Projects shipped' },
+  { value: '1', label: 'ACM board seat' },
+  { value: '2028', label: 'Graduating class' },
 ];
 
 export default function Hero() {
@@ -53,8 +53,8 @@ export default function Hero() {
             <span className="text-gradient">Ahmed</span>
           </h1>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-slate-400">
-            Software engineer focused on building impactful, well-architected systems — from
-            system-level programming to modern web applications.
+            UC Riverside CS student turning classroom theory into shipped software — one project
+            at a time.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
@@ -86,20 +86,24 @@ export default function Hero() {
           <div className="glass glow-hover rounded-2xl p-6">
             <div className="flex items-center justify-between">
               <h3 className="font-heading text-sm font-semibold uppercase tracking-widest text-slate-200">
-                Now
+                By the numbers
               </h3>
               <span className="flex items-center gap-2 font-mono text-xs text-slate-500">
-                <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse-dot" /> Available
+                <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse-dot" /> Active
               </span>
             </div>
 
-            <div className="mt-6 space-y-5">
-              {now.map((item) => (
-                <div key={item.label} className="flex items-start gap-4">
-                  <span className="w-20 shrink-0 font-mono text-xs uppercase tracking-wider text-blue-400/70">
-                    {item.label}
-                  </span>
-                  <p className="text-sm leading-relaxed text-slate-300">{item.value}</p>
+            <p className="mt-2 text-sm text-slate-500">A quick snapshot of the journey so far.</p>
+
+            <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-6">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <p className="text-gradient font-heading text-3xl font-bold leading-none">
+                    {s.value}
+                  </p>
+                  <p className="mt-2 font-mono text-xs uppercase tracking-wider text-slate-500">
+                    {s.label}
+                  </p>
                 </div>
               ))}
             </div>
