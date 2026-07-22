@@ -5,7 +5,7 @@ const stats = [
 { value: '3.83', label: "GPA · Dean's List" },
 { value: '03', label: 'Projects shipped' },
 { value: '2', label: 'Leadership roles' },
-{ value: '2028', label: 'Graduating class' }];
+{ value: "2027", label: 'Graduating class' }];
 
 
 export default function Hero() {
