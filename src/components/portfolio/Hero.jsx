@@ -48,9 +48,9 @@ export default function Hero() {
             Computer Science · UCR
           </div>
           <h1 className="font-heading text-6xl font-bold leading-[1.02] tracking-tight sm:text-7xl lg:text-8xl">
-            <span className="text-gradient">Daniyal</span>
+            <span className="text-foreground">Daniyal</span>
             <br />
-            <span className="text-gradient">Ahmed</span>
+            <span className="text-outline-blue">Ahmed</span>
           </h1>
           
 
