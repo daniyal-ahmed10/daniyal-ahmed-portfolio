@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { ArrowDown, Github, Linkedin } from 'lucide-react';
+import ProfileImage from '@/components/portfolio/ProfileImage';
 
 const stats = [
 { value: '3.83', label: "GPA · Dean's List" },
@@ -43,9 +44,12 @@ export default function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 gap-12 px-6 pt-16 lg:grid-cols-12 lg:px-12">
         <div className="lg:col-span-7">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-slate-400">
-            <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse-dot" />
-            Computer Science · UCR
+          <div className="mb-6 flex items-center gap-4">
+            <ProfileImage />
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-slate-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse-dot" />
+              Computer Science · UCR
+            </div>
           </div>
           <h1 className="font-heading text-6xl font-bold leading-[1.02] tracking-tight sm:text-7xl lg:text-8xl">
             <span className="text-aurora">Daniyal</span>
