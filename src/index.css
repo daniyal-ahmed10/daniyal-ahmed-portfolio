@@ -207,6 +207,17 @@
   }
   .animate-pulse-dot { animation: pulse-dot 2.4s ease-in-out infinite; }
 
+  .bg-dot-grid {
+    background-image: radial-gradient(hsl(210 40% 90% / 0.15) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  @keyframes pan-slow {
+    from { background-position: 0 0; }
+    to { background-position: 220px 220px; }
+  }
+  .animate-pan-slow { animation: pan-slow 40s linear infinite; }
+
   @keyframes blink {
     0%, 49% { opacity: 1; }
     50%, 100% { opacity: 0; }
@@ -233,5 +244,21 @@
     color: transparent;
     filter: drop-shadow(0 0 24px hsl(217 91% 60% / 0.35));
     animation: gradient-shift 9s ease infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-float-slow,
+  .animate-float-slower,
+  .animate-blink,
+  .animate-bounce,
+  .animate-pan-slow,
+  .text-gradient,
+  .text-aurora {
+    animation: none !important;
   }
 }

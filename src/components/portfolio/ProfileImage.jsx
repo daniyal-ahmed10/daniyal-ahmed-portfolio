@@ -1,7 +1,5 @@
 import { User } from 'lucide-react';
-import profileSrc from './profile.jpeg'; // Import the profile image
-// Your photo lives at public/profile.jpeg and is served at /profile.jpeg
-// const profileSrc = '/profile.jpeg';
+import profileSrc from './profilepic.jpg'; // Import the profile image
 
 export default function ProfileImage() {
   return (

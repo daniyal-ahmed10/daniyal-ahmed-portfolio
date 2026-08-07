@@ -1,6 +1,18 @@
 import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown, Github, Linkedin } from 'lucide-react';
 import ProfileImage from '@/components/portfolio/ProfileImage';
+import NetworkCanvas from '@/components/portfolio/NetworkCanvas';
+
+const contentVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
 
 const stats = [
   { value: '3.83', label: "GPA · Dean's List" },
@@ -12,6 +24,10 @@ const stats = [
 
 export default function Hero() {
   const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
+  const blobY1 = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const blobY2 = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const blobY3 = useTransform(scrollYProgress, [0, 1], [0, 40]);
 
   const onMouseMove = (e) => {
     const el = ref.current;
@@ -27,13 +43,13 @@ export default function Hero() {
       ref={ref}
       onMouseMove={onMouseMove}
       className="relative flex min-h-screen items-center overflow-hidden bg-background">
-      
-      {/* Aurora blobs */}
-      <div className="blob animate-float-slow" style={{ width: 520, height: 520, background: 'hsl(217 91% 55% / 0.28)', top: '-12%', left: '-6%' }} />
-      <div className="blob animate-float-slower" style={{ width: 440, height: 440, background: 'hsl(199 89% 55% / 0.22)', bottom: '-15%', right: '-4%' }} />
-      <div className="blob animate-float-slow" style={{ width: 300, height: 300, background: 'hsl(245 80% 60% / 0.16)', top: '35%', right: '25%' }} />
 
-      <div className="absolute inset-0 bg-dot-grid opacity-20" />
+      {/* Aurora blobs */}
+      <motion.div style={{ y: blobY1, width: 520, height: 520, background: 'hsl(217 91% 55% / 0.28)', top: '-12%', left: '-6%' }} className="blob animate-float-slow" />
+      <motion.div style={{ y: blobY2, width: 440, height: 440, background: 'hsl(199 89% 55% / 0.22)', bottom: '-15%', right: '-4%' }} className="blob animate-float-slower" />
+      <motion.div style={{ y: blobY3, width: 300, height: 300, background: 'hsl(245 80% 60% / 0.16)', top: '35%', right: '25%' }} className="blob animate-float-slow" />
+
+      <NetworkCanvas />
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -44,43 +60,47 @@ export default function Hero() {
       <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
 
       <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 gap-12 px-6 pt-16 lg:grid-cols-12 lg:px-12">
-        <div className="lg:col-span-7">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-slate-400">
+        <motion.div
+          className="lg:col-span-7"
+          variants={contentVariants}
+          initial="hidden"
+          animate="visible">
+          <motion.div variants={itemVariants} className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-slate-400">
             <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse-dot" />
             Computer Science · UCR
-          </div>
-          <h1 className="font-heading text-6xl font-bold leading-[1.02] tracking-tight sm:text-7xl lg:text-8xl">
+          </motion.div>
+          <motion.h1 variants={itemVariants} className="font-heading text-6xl font-bold leading-[1.02] tracking-tight sm:text-7xl lg:text-8xl">
             <span className="text-aurora">Daniyal</span>
             <br />
             <span className="text-outline-blue">Ahmed</span>
-          </h1>
+          </motion.h1>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <motion.div variants={itemVariants} className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#projects"
-              className="btn-glow inline-flex h-11 items-center rounded-full border border-slate-700 px-6 font-mono text-xs uppercase tracking-widest text-slate-100">
-              
+              className="btn-glow inline-flex h-11 items-center rounded-full border border-slate-700 px-6 font-mono text-xs uppercase tracking-widest text-slate-100 transition-transform active:scale-[0.96]">
+
               View Projects
             </a>
             <a
               href="https://github.com/daniyal-ahmed10"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 items-center gap-2 rounded-full border border-white/10 px-5 font-mono text-xs uppercase tracking-widest text-slate-300 transition-colors hover:border-blue-500/40 hover:text-white">
-              
+              className="inline-flex h-11 items-center gap-2 rounded-full border border-white/10 px-5 font-mono text-xs uppercase tracking-widest text-slate-300 transition-[color,border-color,transform] duration-300 hover:border-blue-500/40 hover:text-white active:scale-[0.96]">
+
               <Github className="h-4 w-4" /> GitHub
             </a>
             <a
               href="https://linkedin.com/in/daniyal-ahmed-279888280"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 items-center gap-2 rounded-full border border-white/10 px-5 font-mono text-xs uppercase tracking-widest text-slate-300 transition-colors hover:border-blue-500/40 hover:text-white">
-              
+              className="inline-flex h-11 items-center gap-2 rounded-full border border-white/10 px-5 font-mono text-xs uppercase tracking-widest text-slate-300 transition-[color,border-color,transform] duration-300 hover:border-blue-500/40 hover:text-white active:scale-[0.96]">
+
               <Linkedin className="h-4 w-4" /> LinkedIn
             </a>
-          </div>
+          </motion.div>
 
-          <div className="glass glow-hover mt-10 rounded-2xl p-6">
+          <motion.div variants={itemVariants} className="glass glow-hover mt-10 rounded-2xl p-6">
             <div className="flex items-center justify-between">
               <h3 className="font-heading text-sm font-semibold uppercase tracking-widest text-slate-200">
                 By the numbers
@@ -104,12 +124,16 @@ export default function Hero() {
                 </div>
               )}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="lg:col-span-5 lg:pl-4">
+        <motion.div
+          className="lg:col-span-5 lg:pl-4"
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}>
           <ProfileImage />
-        </div>
+        </motion.div>
       </div>
 
       <a

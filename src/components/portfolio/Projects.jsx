@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Github } from 'lucide-react';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowUpRight, Award, Github } from 'lucide-react';
 
 const projects = [
 {
@@ -40,17 +41,32 @@ const projects = [
   inProgress: true
 }];
 
+const certifications = [
+  { name: 'Artificial Intelligence Fundamentals', issuer: 'IBM' },
+  { name: "CS50's Introduction to Computer Science", issuer: 'Harvard University' },
+  { name: 'IC3 Digital Literacy Certification GS6 Level 3', issuer: 'Certiport' },
+  { name: 'IC3 Digital Literacy Certification GS6 Level 1', issuer: 'Certiport' },
+];
 
 export default function Projects() {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] });
+  const blobY = useTransform(scrollYProgress, [0, 1], [-40, 40]);
+
   return (
-    <section id="projects" className="relative overflow-hidden border-t border-white/5 bg-background py-24 lg:py-32">
-      <div className="blob animate-float-slow" style={{ width: 380, height: 380, background: 'hsl(199 89% 55% / 0.1)', bottom: '10%', right: '-8%' }} />
+    <section ref={sectionRef} id="projects" className="relative overflow-hidden border-t border-white/5 bg-background py-24 lg:py-32">
+      <motion.div style={{ y: blobY, width: 380, height: 380, background: 'hsl(199 89% 55% / 0.1)', bottom: '10%', right: '-8%' }} className="blob animate-float-slow" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-16 flex items-center gap-4">
-          <p className="font-mono text-xs uppercase tracking-widest text-blue-500/70">
-            03 / Projects
-          </p>
+          <motion.p
+            initial={{ opacity: 0, x: -12 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="font-mono text-xs uppercase tracking-widest text-blue-500/70">
+            03 / Projects & Certifications
+          </motion.p>
           <span className="h-px flex-1 bg-gradient-to-r from-blue-500/30 to-transparent" />
         </div>
 
@@ -63,7 +79,7 @@ export default function Projects() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.45, delay: i * 0.08 }}
             className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 lg:p-8">
-            
+
               <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-400 group-hover:opacity-100" style={{ background: 'radial-gradient(500px circle at var(--mx,30%) 0%, hsl(217 91% 60% / 0.12), transparent 60%)' }} />
               <div className="absolute left-0 top-0 h-full w-0.5 bg-gradient-to-b from-blue-500 to-cyan-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
@@ -81,7 +97,7 @@ export default function Projects() {
                   <span
                     key={t}
                     className="rounded-full border border-white/10 px-2.5 py-0.5 font-mono text-xs text-slate-400 transition-colors group-hover:border-blue-500/30 group-hover:text-slate-200">
-                    
+
                         {t}
                       </span>
                   )}
@@ -100,7 +116,7 @@ export default function Projects() {
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-slate-400 transition-colors hover:text-blue-400">
-                  
+
                         {link.icon === 'github' && <Github className="h-3.5 w-3.5" />}
                         {link.label}
                         {link.external && <ArrowUpRight className="h-3.5 w-3.5" />}
@@ -112,6 +128,31 @@ export default function Projects() {
             </motion.article>
           )}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.4 }}
+          className="mt-14"
+        >
+          <h3 className="mb-5 font-mono text-sm uppercase tracking-widest text-slate-500">
+            Certifications
+          </h3>
+          <div className="flex flex-wrap gap-3">
+            {certifications.map((c) => (
+              <div
+                key={c.name}
+                className="group flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.02] px-4 py-2.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-500/40 hover:bg-white/[0.05]"
+              >
+                <Award className="h-3.5 w-3.5 shrink-0 text-blue-400" />
+                <span className="text-xs font-medium text-slate-100">{c.name}</span>
+                <span className="text-slate-600">·</span>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500">{c.issuer}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>);
 

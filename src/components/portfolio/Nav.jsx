@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const links = [
@@ -12,6 +13,7 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [hovered, setHovered] = useState(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -37,15 +39,23 @@ export default function Nav() {
           <span className="text-gradient-soft">{'//'}</span> daniyal
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-8 md:flex" onMouseLeave={() => setHovered(null)}>
           {links.map((l) => (
             <a
               key={l.id}
               href={`#${l.id}`}
-              className="font-mono text-xs uppercase tracking-widest text-slate-400 transition-colors hover:text-slate-100"
+              onMouseEnter={() => setHovered(l.id)}
+              className="relative py-2 font-mono text-xs uppercase tracking-widest text-slate-400 transition-colors hover:text-slate-100"
             >
               {l.num && <span className="mr-1 text-blue-500/50">{l.num}</span>}
               {l.label}
+              {hovered === l.id && (
+                <motion.span
+                  layoutId="nav-underline"
+                  className="absolute inset-x-0 -bottom-0.5 h-px bg-gradient-to-r from-blue-500 to-cyan-400"
+                  transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                />
+              )}
             </a>
           ))}
         </div>
