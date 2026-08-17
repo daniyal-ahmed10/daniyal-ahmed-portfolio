@@ -15,8 +15,8 @@ const itemVariants = {
 };
 
 const stats = [
-  { value: '3.83', label: "GPA · Dean's List" },
-  { value: '3+', label: 'Projects built' },
+  { value: '3.71', label: "GPA · Dean's List" },
+  { value: '4+', label: 'Projects built' },
   { value: '2', label: 'Leadership roles' },
   { value: "2027", label: 'Graduating class' },
 ];
@@ -105,9 +105,6 @@ export default function Hero() {
               <h3 className="font-heading text-sm font-semibold uppercase tracking-widest text-slate-200">
                 By the numbers
               </h3>
-              <span className="flex items-center gap-2 font-mono text-xs text-slate-500">
-                <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse-dot" /> Active
-              </span>
             </div>
 
             <p className="mt-2 text-sm text-slate-500">A quick snapshot of the journey so far.</p>

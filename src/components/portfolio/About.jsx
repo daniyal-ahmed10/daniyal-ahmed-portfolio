@@ -2,7 +2,14 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import TypewriterText from '@/components/portfolio/TypewriterText';
 
-const taglineWords = ['Computer Science Student.', 'Builder.', 'Problem Solver.'];
+const taglineWords = [
+  'Computer Science Student.',
+  'Builder.',
+  'Problem Solver.',
+  'Team Leader.',
+  'Tech Enthusiast.',
+  'Lifelong Learner.',
+];
 
 const paragraphs = [
   <>
